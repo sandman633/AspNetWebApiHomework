@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Services.Services
 {
-    class CarService : ICarService
+    public class CarService : ICarService
     {
         private readonly IMapper _mapper;
 
