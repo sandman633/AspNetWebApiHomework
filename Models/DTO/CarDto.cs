@@ -43,5 +43,9 @@ namespace Models.DTO
         [Range(1, 2100)]
         [Required]
         public int MaxSpeed { get; set; }
+        /// <summary>
+        /// цена
+        /// </summary>
+        public double Price { get; set; }
     }
 }

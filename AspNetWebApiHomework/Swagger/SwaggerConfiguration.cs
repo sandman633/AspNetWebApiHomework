@@ -21,7 +21,6 @@ namespace AspNetWebApiHomework.Swagger
                 c.Title = "Weather";
                 c.DocumentName = SwaggerDocParts.Weather;
                 c.ApiGroupNames = new[] { SwaggerDocParts.Weather };
-                c.GenerateXmlObjects = true;
             });
         }
     }

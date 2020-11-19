@@ -38,5 +38,9 @@ namespace DataBase.Domain
         /// максимальная скорость
         /// </summary>
         public int MaxSpeed { get; set; }
+        /// <summary>
+        /// цена
+        /// </summary>
+        public double Price { get; set; }
     }
 }
