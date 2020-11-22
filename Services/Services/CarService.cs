@@ -9,18 +9,31 @@ using System.Text;
 namespace Services.Services
 {
     /// <summary>
-    /// сервис выполняющий две функции:
-    /// получение данных из мок обьекта и удаление
+    /// Сервис выполняющий две функции:
+    /// Получение данных из мок обьекта и удаление
     /// </summary>
     public class CarService : ICarService
     {
+        /// <summary>
+        /// Маппер
+        /// </summary>
         private readonly IMapper _mapper;
-
+        /// <summary>
+        /// Иницализируем поля
+        /// </summary>
+        /// <param name="mapper">Маппер</param>
         public CarService(IMapper mapper)
         {
             _mapper = mapper;
         }
-
+        /// <summary>
+        /// Метод для удаления авто из Mock-объекта
+        /// </summary>
+        /// <param name="id">id нужного авто</param>
+        /// <returns>Возвращает булевую переменную 
+        /// true - операция успешна
+        /// false - нет
+        /// </returns>
         public bool DeleteCarById(int id)
         {
             var result = CarMock.FindCarById(id);
@@ -35,7 +48,10 @@ namespace Services.Services
             }
         }
 
-
+        /// <summary>
+        /// Возвращает коллекцию машин
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<CarDto> GetCars()
         {
             var cars = CarMock.GetCars();

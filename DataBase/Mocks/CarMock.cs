@@ -6,8 +6,8 @@ using System.Text;
 namespace DataBase.Mocks
 {
     /// <summary>
-    /// mock объект для модели car
-    /// обладает методами для поиска авто по id,удаление из объекта и выдачу всего списка
+    /// Mock объект для модели car
+    /// Обладает методами для поиска авто по id,удаление из объекта и выдачу всего списка
     /// </summary>
     public static class CarMock
     {

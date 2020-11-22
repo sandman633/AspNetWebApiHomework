@@ -22,24 +22,24 @@ namespace DataBase.Domain
         /// </summary>
         public string Model { get; set; }
         /// <summary>
-        /// тип двигателя
+        /// Тип двигателя
         /// </summary>
         public string EngineType { get; set; }
         /// <summary>
-        /// год выпуска
+        /// Год выпуска
         /// </summary>
         public int Year { get; set; }
         /// <summary>
-        /// тип автомобиля
+        /// Тип автомобиля
         /// (хэтчбэк, седан и тп)
         /// </summary>
         public string Type { get; set; }
         /// <summary>
-        /// максимальная скорость
+        /// Максимальная скорость
         /// </summary>
         public int MaxSpeed { get; set; }
         /// <summary>
-        /// цена
+        /// Цена
         /// </summary>
         public double Price { get; set; }
     }

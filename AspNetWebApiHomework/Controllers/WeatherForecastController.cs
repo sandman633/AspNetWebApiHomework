@@ -11,7 +11,6 @@ namespace AspNetWebApiHomework.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [ApiExplorerSettings(GroupName = SwaggerDocParts.Weather)]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

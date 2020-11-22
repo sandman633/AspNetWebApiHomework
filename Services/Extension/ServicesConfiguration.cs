@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Services.Extension
 {
+    /// <summary>
+    /// Метод расширения для настройки конфигурации сервиса
+    /// </summary>
     public static class ServicesConfiguration
     {
         public static void ConfigureServices(this IServiceCollection services)
