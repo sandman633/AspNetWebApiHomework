@@ -22,6 +22,10 @@ namespace AspNetWebApiHomework
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// Добавляем нужные сервисы
+        /// </summary>
+        /// <param name="services">Коллекция сервисов </param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -32,6 +36,11 @@ namespace AspNetWebApiHomework
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// Настройка компонентов middleware
+        /// </summary>
+        /// <param name="app">Конфигурация приложения</param>
+        /// <param name="env">Информация об приложении</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

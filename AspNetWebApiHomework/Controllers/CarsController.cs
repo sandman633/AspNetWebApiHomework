@@ -13,32 +13,32 @@ namespace AspNetWebApiHomework.Controllers
     /// </summary>
     [ApiController]
     [ApiExplorerSettings(GroupName = SwaggerDocParts.Cars)]
-    public class CarController : ControllerBase
+    public class CarsController : ControllerBase
     {
-        private readonly ILogger<CarController> _logger;
+        private readonly ILogger<CarsController> _logger;
         private readonly ICarService _carservice;
 
         /// <summary>
-        /// инициализируем поля
+        /// Инициализируем поля
         /// </summary>
-        /// <param name="logger"></param>
-        /// <param name="service"></param>
-        public CarController(ILogger<CarController> logger, ICarService service)
+        /// <param name="logger">добавляем логер</param>
+        /// <param name="service">и сервис</param>
+        public CarsController(ILogger<CarsController> logger, ICarService service)
         {
             _logger = logger;
 
             _carservice = service;
         }
         /// <summary>
-        /// контроллер для получения списка автомобилей
+        /// Контроллер для получения списка автомобилей
         /// </summary>
         /// <returns>
-        /// список авто
+        /// Список авто
         /// </returns>
         [HttpGet]
-        [Route("[controller]/get")]
+        [Route("[controller]/Get")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<CarDto>))]
-        public IActionResult GetCars()
+        public IActionResult Get()
         {
             _logger.LogInformation("Cars/get was requested");
             var response = _carservice.GetCars();
@@ -49,14 +49,14 @@ namespace AspNetWebApiHomework.Controllers
             return NotFound();
         }
         /// <summary>
-        /// удаление авто по id
+        /// Удаление авто по id
         /// если авто с указанным айди существует проходит без ошибок, иначе not found
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Параметр id по которому происходит поиск авто</param>
         /// <returns></returns>
         [HttpDelete]
         [Route("[controller]/{id}")]
-        public IActionResult DeleteCarById(int id)
+        public IActionResult Delete(int id)
         {
             _logger.LogInformation("cars/id for delete was  requested");
             var result = _carservice.DeleteCarById(id);

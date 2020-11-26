@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Services.Mappings
 {
+    /// <summary>
+    /// Профиль маппинга
+    /// </summary>
     class CarProfile  : Profile
     {
         public CarProfile()

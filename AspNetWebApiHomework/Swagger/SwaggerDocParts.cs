@@ -5,9 +5,15 @@ using System.Threading.Tasks;
 
 namespace AspNetWebApiHomework.Swagger
 {
+    /// <summary>
+    /// Константы для указания частей API в Swagger.
+    /// </summary>
     public class SwaggerDocParts
     {
+        /// <summary>
+        /// Константа для сваггер-документа 
+        /// </summary>
         public const string Cars = nameof(Cars);
-        public const string Weather = nameof(Weather);
+        //public const string Weather = nameof(Weather);
     }
 }
