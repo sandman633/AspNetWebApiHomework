@@ -4,12 +4,9 @@ namespace DataBase.Domain
     /// <summary>
     /// 
     /// </summary>
-    public class Manufacturer
+    public class Manufacturer : BaseEntity
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public long Id { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -18,6 +15,11 @@ namespace DataBase.Domain
         /// 
         /// </summary>
         public int Year { get; set; }
+
+        public override string ToString()
+        {
+            return "Наименование "+ Name + "Год выпуска " + Year.ToString();
+        }
 
     }
 }

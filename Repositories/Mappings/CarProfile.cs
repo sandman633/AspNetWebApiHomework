@@ -1,20 +1,19 @@
-﻿using AutoMapper;
-using DataBase.Domain;
+﻿using DataBase.Domain;
 using Models.DTO;
-using System;
+using AutoMapper;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Services.Mappings
+namespace Repositories.Mappings
 {
     /// <summary>
     /// Профиль маппинга
     /// </summary>
-    class CarProfile  : Profile
+    public class CarProfile : Profile
     {
         public CarProfile()
         {
-            CreateMap<Car, CarDto>();
+            CreateMap<Car, CarDto>().ReverseMap();
         }
     }
 }

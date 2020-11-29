@@ -9,7 +9,7 @@ namespace DataBase.Context
     /// <summary>
     /// 
     /// </summary>
-    class CarsContext : DbContext
+    public class CarsContext : DbContext
     {
         /// <summary>
         /// 

@@ -1,17 +1,15 @@
 ﻿
 
+using System.ComponentModel.DataAnnotations;
+
 namespace DataBase.Domain
 {
     /// <summary>
     /// Описание сущности двигатель
     /// TODO: Написать комментарии
     /// </summary>
-    public class Engine
+    public class Engine : BaseEntity
     {
-        /// <summary>
-        /// Id
-        /// </summary>
-        public int Id { get; set; }
         /// <summary>
         /// Название
         /// </summary>
@@ -27,6 +25,11 @@ namespace DataBase.Domain
         /// <summary>
         /// 
         /// </summary>
+        [StringLength(2500)]
         public string Description { get; set; }
+        public override string ToString()
+        {
+            return Name + " " + Type + " " + Power.ToString() + " " + Description;
+        }
     }
 }

@@ -8,12 +8,8 @@ namespace DataBase.Domain
     /// 
     /// TODO: добавить атрибуты
     /// </summary>
-    class Availability
+    public class Availability : BaseEntity
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public long Id { get; set; }
         /// <summary>
         /// 
         /// </summary>

@@ -6,7 +6,7 @@ namespace Models.DTO
     /// <summary>
     /// DTO для <see cref="Car"/>
     /// </summary>
-    public class CarDto
+    public class CarDto : BaseDto
     {
         /// <summary>
         /// Марка авто
@@ -46,6 +46,7 @@ namespace Models.DTO
         /// <summary>
         /// Цена
         /// </summary>
+        [Required]
         public double Price { get; set; }
     }
 }
