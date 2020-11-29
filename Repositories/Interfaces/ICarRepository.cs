@@ -10,7 +10,7 @@ namespace Repositories.Interfaces
     /// <summary>
     /// интерфейс сервиса для работы 
     /// </summary>
-    interface ICarRepository: ICrudRepository<CarDto,Car>
+    public interface ICarRepository: ICrudRepository<CarDto,Car>
     {
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Repositories.Extension
     {
         public static void ConfigureRepositories(this IServiceCollection services)
         {
-            services.AddScoped<>();
+            services.AddScoped<ICarRepository,CarRepository>();
         }
     }
 }

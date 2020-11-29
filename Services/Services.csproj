@@ -10,7 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataBase\DataBase.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Repositories\Repositories.csproj" />
   </ItemGroup>
 
 </Project>

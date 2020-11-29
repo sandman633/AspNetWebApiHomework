@@ -33,7 +33,8 @@ namespace DataBase.Context
         DbSet<Manufacturer> Manufacturers { get; set; }
         public CarsContext(DbContextOptions options):base(options)
         {
-
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
         }
     }
 }
