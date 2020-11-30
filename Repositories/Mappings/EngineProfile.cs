@@ -4,7 +4,7 @@ using AutoMapper;
 
 namespace Repositories.Mappings
 {
-    class EngineProfile : Profile
+    public class EngineProfile : Profile
     {
         public EngineProfile()
         {

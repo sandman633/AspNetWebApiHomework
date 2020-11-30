@@ -1,4 +1,5 @@
 ﻿using DataBase.Domain;
+using Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,7 +16,7 @@ namespace Models.Requests.Car
         /// <summary>
         /// Марка авто
         /// </summary>
-        public Manufacturer Brand { get; set; }
+        public ManufacturerDto Brand { get; set; }
         /// <summary>
         /// Модель
         /// </summary>
@@ -23,7 +24,7 @@ namespace Models.Requests.Car
         /// <summary>
         /// Тип двигателя
         /// </summary>
-        public Engine EngineType { get; set; }
+        public EngineDto EngineType { get; set; }
         /// <summary>
         /// Год выпуска
         /// </summary>

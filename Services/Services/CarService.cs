@@ -16,6 +16,7 @@ namespace Services.Services
     {
         /// <summary>
         /// Маппер
+        /// и репозиторий
         /// </summary>
         private readonly ICarRepository _repository;
         private readonly IMapper _mapper;
@@ -23,6 +24,7 @@ namespace Services.Services
         /// Иницализируем поля
         /// </summary>
         /// <param name="mapper">Маппер</param>
+        /// <param name="repository">Rep</param>
         public CarService(IMapper mapper, ICarRepository repository)
         {
             _repository = repository;
@@ -45,7 +47,7 @@ namespace Services.Services
 
             var manufacturer = new Manufacturer { Name = "Toyota", Year = 2010 };
             var shop = new Shop { Name = "TTS Auto", Phone = "55255255" };
-            var car = new Car { Brand = manufacturer, Engine = engine, Model = "Camry", MaxSpeed = 240, Price = 2500000, Type = "Sedan", Year = 2010 };
+            var car = new Car { Brand = manufacturer, Engine = engine, Model = "Camry", MaxSpeed = 240, Price = 2500000, Type = "Sedan"};
             var availability = new Availability { Car = car, Shop = shop };
             return await _repository.GetAsync();
         }

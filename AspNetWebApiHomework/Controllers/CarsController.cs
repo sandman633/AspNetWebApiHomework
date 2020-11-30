@@ -19,7 +19,7 @@ namespace AspNetWebApiHomework.Controllers
     public class CarsController : ControllerBase
     {
         private readonly ILogger<CarsController> _logger;
-        private readonly ICarService _carservice;
+        private readonly ICarService _carService;
         private readonly IMapper _mapper;
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace AspNetWebApiHomework.Controllers
 
             _logger = logger;
 
-            _carservice = service;
+            _carService = service;
         }
         /// <summary>
         /// Контроллер для получения списка автомобилей
@@ -48,7 +48,7 @@ namespace AspNetWebApiHomework.Controllers
         public async Task<IActionResult>  GetAsync()
         {
             _logger.LogInformation("Cars/get was requested");
-            var response = await _carservice.GetAsync();
+            var response = await _carService.GetAsync();
             if(response!=null)
             {
                 return Ok(_mapper.Map<IEnumerable<CarResponse>>(response));
@@ -61,7 +61,7 @@ namespace AspNetWebApiHomework.Controllers
         public async Task<IActionResult> GetAsync(long id)
         {
             _logger.LogInformation("Cars/get/id was requested");
-            var response = await _carservice.GetAsyncById(id);
+            var response = await _carService.GetAsyncById(id);
             if (response != null)
             {
                 return Ok(_mapper.Map<CarResponse>(response));
@@ -70,7 +70,6 @@ namespace AspNetWebApiHomework.Controllers
         }
         /// <summary>
         /// Удаление авто по id
-        /// если авто с указанным айди существует проходит без ошибок, иначе not found
         /// </summary>
         /// <param name="id">Параметр id по которому происходит поиск авто</param>
         /// <returns></returns>
@@ -79,8 +78,17 @@ namespace AspNetWebApiHomework.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             _logger.LogInformation("cars/id for delete was  requested");
-            await _carservice.DeleteAsync(id);
+            await _carService.DeleteAsync(id);
             return NoContent();
+        }
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CarResponse))]
+        [Route("[controller]/add")]
+        public async Task<IActionResult> PostAsync(CreateCarRequest request)
+        {
+            _logger.LogInformation("Dresses/Post was requested.");
+            var response = await _carService.CreateAsync(_mapper.Map<CarDto>(request));
+            return Ok(_mapper.Map<CarResponse>(response));
         }
     }
 }

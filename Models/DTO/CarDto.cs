@@ -13,7 +13,7 @@ namespace Models.DTO
         /// </summary>
         [Required]
         [StringLength(200)]
-        public string Brand { get; set; }
+        public ManufacturerDto Brand { get; set; }
         /// <summary>
         /// Модель
         /// </summary>
@@ -25,12 +25,7 @@ namespace Models.DTO
         /// </summary>
         [Required]
         [StringLength(100)]
-        public string EngineType { get; set; }
-        /// <summary>
-        /// Год выпуска
-        /// </summary>
-        [Required]
-        public int Year { get; set; }
+        public EngineDto EngineType { get; set; }
         /// <summary>
         /// Тип автомобиля
         /// (хэтчбэк, седан и тп)
