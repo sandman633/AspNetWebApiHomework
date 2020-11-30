@@ -8,10 +8,6 @@ using System.Threading.Tasks;
 
 namespace Services.Services
 {
-    /// <summary>
-    /// Сервис выполняющий две функции:
-    /// Получение данных из мок обьекта и удаление
-    /// </summary>
     public class CarService : ICarService
     {
         /// <summary>
@@ -30,6 +26,9 @@ namespace Services.Services
             _repository = repository;
             _mapper = mapper;
         }
+        /// <summary>
+        /// Реализуем нужные интерфейсы
+        /// </summary>
 
         public async Task<CarDto> CreateAsync(CarDto dto)
         {

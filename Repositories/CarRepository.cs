@@ -10,7 +10,7 @@ using System.Text;
 namespace Repositories
 {
     /// <summary>
-    /// 
+    /// Реализация конкретного репозитория
     /// </summary>
     public class CarRepository : BaseRepository<CarDto, Car>, ICarRepository
     {

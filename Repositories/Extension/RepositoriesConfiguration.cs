@@ -8,6 +8,10 @@ namespace Repositories.Extension
 {
     public static class RepositoriesConfiguration
     {
+        /// <summary>
+        /// Метод расширения для добавление репозитория
+        /// </summary>
+        /// <param name="services">сервисы</param>
         public static void ConfigureRepositories(this IServiceCollection services)
         {
             services.AddScoped<ICarRepository,CarRepository>();

@@ -81,13 +81,31 @@ namespace AspNetWebApiHomework.Controllers
             await _carService.DeleteAsync(id);
             return NoContent();
         }
+        /// <summary>
+        /// добавление записи в бд
+        /// </summary>
+        /// <param name="request">запрос</param>
+        /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CarResponse))]
         [Route("[controller]/add")]
         public async Task<IActionResult> PostAsync(CreateCarRequest request)
         {
-            _logger.LogInformation("Dresses/Post was requested.");
+            _logger.LogInformation("Cars/Post was requested.");
             var response = await _carService.CreateAsync(_mapper.Map<CarDto>(request));
+            return Ok(_mapper.Map<CarResponse>(response));
+        }
+        /// <summary>
+        /// Обновление данных
+        /// </summary>
+        /// <param name="request">запрос</param>
+        /// <returns></returns>
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CarResponse))]
+        public async Task<IActionResult> PutAsync(UpdateCarRequest request)
+        {
+            _logger.LogInformation("Cars/Put was requested.");
+            var response = await _carService.UpdateAsync(_mapper.Map<CarDto>(request));
             return Ok(_mapper.Map<CarResponse>(response));
         }
     }

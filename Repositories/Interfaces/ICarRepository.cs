@@ -8,7 +8,7 @@ using System.Text;
 namespace Repositories.Interfaces
 {
     /// <summary>
-    /// интерфейс сервиса для работы 
+    /// Интерфейс репозитория для работы с Car
     /// </summary>
     public interface ICarRepository: ICrudRepository<CarDto,Car>
     {

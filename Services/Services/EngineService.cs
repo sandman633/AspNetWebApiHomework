@@ -22,6 +22,9 @@ namespace Services.Services
             _mapper = mapper;
             _repository = repository;
         }
+        /// <summary>
+        /// Реализуем нужные интерфейсы
+        /// </summary>
         public async Task<EngineDto> CreateAsync(EngineDto dto)
         {
             return await _repository.CreateAsync(dto);

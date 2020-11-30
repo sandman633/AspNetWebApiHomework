@@ -8,6 +8,9 @@ namespace DataBase.Domain
 {
     public class BaseEntity
     {
+        /// <summary>
+        /// Базовая сущность
+        /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
