@@ -1,51 +1,45 @@
-﻿using System;
+﻿using DataBase.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DataBase.Domain
+namespace Models.Requests.Car
 {
-    /// <summary>
-    /// Описание обьекта автомобиль 
-    /// </summary>
-    public class Car : BaseEntity
+    public class CreateCarRequest
     {
         /// <summary>
-        /// Модель
+        /// Идентификатор записи.
         /// </summary>
-        [StringLength(2500)]
-        public string Model { get; set; }
+        public long Id { get; set; }
         /// <summary>
         /// Марка авто
         /// </summary>
-        [Required]
         public Manufacturer Brand { get; set; }
+        /// <summary>
+        /// Модель
+        /// </summary>
+        public string Model { get; set; }
         /// <summary>
         /// Тип двигателя
         /// </summary>
-        [Required]
-        public Engine Engine { get; set; }
+        public Engine EngineType { get; set; }
         /// <summary>
         /// Год выпуска
         /// </summary>
-        [Required]
         public int Year { get; set; }
         /// <summary>
         /// Тип автомобиля
         /// (хэтчбэк, седан и тп)
         /// </summary>
-        [Required]
         public string Type { get; set; }
         /// <summary>
         /// Максимальная скорость
         /// </summary>
-        [Required]
-        [Range(1, 2100)]
         public int MaxSpeed { get; set; }
         /// <summary>
         /// Цена
         /// </summary>
-        [Required]
         public double Price { get; set; }
     }
 }

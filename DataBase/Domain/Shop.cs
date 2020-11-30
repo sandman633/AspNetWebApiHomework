@@ -3,12 +3,8 @@
     /// <summary>
     /// 
     /// </summary>
-    public class Shop
+    public class Shop : BaseEntity
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public long Id { get; set; }
         /// <summary>
         /// 
         /// </summary>
