@@ -20,11 +20,11 @@ namespace DataBase.Domain
         /// <summary>
         /// Модель
         /// </summary>
-        public string Model { get; set; }
+        public Manufacturer Model { get; set; }
         /// <summary>
         /// Тип двигателя
         /// </summary>
-        public string EngineType { get; set; }
+        public Engine Engine { get; set; }
         /// <summary>
         /// Год выпуска
         /// </summary>
