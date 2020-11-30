@@ -14,6 +14,8 @@ namespace Repositories.Mappings
         public CarProfile()
         {
             CreateMap<Car, CarDto>().ReverseMap();
+            CreateMap<Engine, EngineDto>().ReverseMap();
+            CreateMap<Manufacturer, ManufacturerDto>().ReverseMap();
         }
     }
 }

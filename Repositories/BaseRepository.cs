@@ -12,6 +12,11 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
+    /// <summary>
+    /// Реализация базового репозитория 
+    /// </summary>
+    /// <typeparam name="TDto"></typeparam>
+    /// <typeparam name="TModel"></typeparam>
     public abstract class BaseRepository<TDto, TModel> : ICrudRepository<TDto, TModel> 
         where TDto : BaseDto
         where TModel : BaseEntity
@@ -19,12 +24,21 @@ namespace Repositories
         private readonly IMapper _mapper;
         protected readonly CarsContext _context;
         protected DbSet<TModel> DbSet => _context.Set<TModel>();
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context">Контекст бд</param>
+        /// <param name="mapper">маппер</param>
         protected BaseRepository(CarsContext context, IMapper mapper)
         {
             _mapper = mapper;
             _context = context;
         }
+        /// <summary>
+        /// Методы реализующие интерфейсы Репозитория
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
 
         public async Task<TDto> CreateAsync(TDto dto)
         {

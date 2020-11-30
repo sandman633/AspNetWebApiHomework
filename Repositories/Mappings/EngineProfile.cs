@@ -4,8 +4,11 @@ using AutoMapper;
 
 namespace Repositories.Mappings
 {
-    class EngineProfile : Profile
+    public class EngineProfile : Profile
     {
+        /// <summary>
+        /// Profile маппинга
+        /// </summary>
         public EngineProfile()
         {
             CreateMap<Engine, EngineDto>().ReverseMap();

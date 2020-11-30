@@ -7,6 +7,11 @@ namespace DataBase.Context
 {
     public static class DbConfigurations
     {
+        /// <summary>
+        /// Метод расширения для добавления контекста базы данных
+        /// </summary>
+        /// <param name="service">сервисы</param>
+        /// <param name="configuration">конфигурация</param>
         public static void ConfigureDb(this IServiceCollection service, IConfiguration configuration )
         {
             service.AddDbContext<CarsContext>(

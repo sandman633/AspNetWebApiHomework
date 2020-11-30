@@ -6,7 +6,10 @@ using System.Text;
 
 namespace Repositories.Interfaces
 {
-    public interface IEngineService : ICreateDto<EngineDto>, IDeletableById
+    /// <summary>
+    /// Интерфейс сервиса для работы с Engine
+    /// </summary>
+    public interface IEngineService : ICreateDto<EngineDto>, IGetTable<EngineDto>, IDeletableById
     {
     }
 }

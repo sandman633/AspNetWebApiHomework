@@ -7,6 +7,6 @@ namespace Repositories.Interfaces.CRUD
 {
     public interface IGetTableById<TDto>
     {
-        Task<IEnumerable<TDto>> GetByIdAsync(long id);
+        Task<TDto> GetAsyncById(long id);
     }
 }

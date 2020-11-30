@@ -26,11 +26,6 @@ namespace DataBase.Domain
         [Required]
         public Engine Engine { get; set; }
         /// <summary>
-        /// Год выпуска
-        /// </summary>
-        [Required]
-        public int Year { get; set; }
-        /// <summary>
         /// Тип автомобиля
         /// (хэтчбэк, седан и тп)
         /// </summary>
