@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataBase.Domain
 {
@@ -17,5 +18,13 @@ namespace DataBase.Domain
         /// </summary>
         [Required]
         public string Phone { get; set; }
+        /// <summary>
+        /// Город
+        /// </summary>
+        public string City { get; set; }
+        /// <summary>
+        /// Наличие
+        /// </summary>
+        public ICollection<Availability> Availabilities { get; set; }
     }
 }

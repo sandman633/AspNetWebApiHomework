@@ -7,16 +7,12 @@ namespace DataBase.Domain
     /// <summary>
     /// Доменная модель
     /// </summary>
-    public class Availability : BaseEntity
+    public class Availability : BaseEntityWithLinks<Car, Shop>
     {
         /// <summary>
-        /// Магазины
+        /// Количество доступных единиц.
         /// </summary>
-        public Shop Shop { get; set; }
-        /// <summary>
-        /// Авто
-        /// </summary>
-        public Car Car { get; set; }
+        public int Count { get; set; }
 
     }
 }

@@ -1,6 +1,4 @@
-﻿
-
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DataBase.Domain
 {
@@ -30,9 +28,5 @@ namespace DataBase.Domain
         /// </summary>
         [StringLength(2500)]
         public string Description { get; set; }
-        public override string ToString()
-        {
-            return Name + " " + Type + " " + Power.ToString() + " " + Description;
-        }
     }
 }
