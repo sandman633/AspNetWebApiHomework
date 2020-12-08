@@ -11,7 +11,7 @@ namespace Repositories.Interfaces
     /// <summary>
     /// Интерфейс репозитория для работы с Car
     /// </summary>
-    public interface ICarRepository: ICrudRepository<CarDto,Car>
+    public interface ICarRepository: ICrudRepository<CarDto,Car>, ISwapEngine<CarDto>
     {
          
     }

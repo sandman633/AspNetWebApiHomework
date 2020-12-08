@@ -109,5 +109,14 @@ namespace AspNetWebApiHomework.Controllers
             var response = await _carService.UpdateAsync(_mapper.Map<CarDto>(request));
             return Ok(_mapper.Map<CarResponse>(response));
         }
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CarResponse))]
+        [Route("[controller]/Swap")]
+        public async Task<IActionResult> SwapAsync(int id, string engineName)
+        {
+            _logger.LogInformation("Cars/Swap was requested.");
+            var response = await _carService.SwapEngine(id,engineName);
+            return Ok(_mapper.Map<CarResponse>(response));
+        }
     }
 }

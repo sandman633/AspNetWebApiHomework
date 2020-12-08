@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Repositories.Interfaces.CRUD
 {
-    interface SwapEngine<TDto>
+    public interface ISwapEngine<TDto>
     {
-        Task<TDto> SwapEngine(TDto dto); 
+        Task<TDto> SwapEngine(long id, string engineName); 
     }
 }

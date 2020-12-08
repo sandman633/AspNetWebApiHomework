@@ -50,6 +50,11 @@ namespace Services.Services
             return await _repository.GetAsyncById(id);
         }
 
+        public async Task<CarDto> SwapEngine(long id, string engineName)
+        {
+            return await _repository.SwapEngine(id, engineName);
+        }
+
         public async Task<CarDto> UpdateAsync(CarDto dto)
         {
             return await _repository.UpdateAsync(dto);

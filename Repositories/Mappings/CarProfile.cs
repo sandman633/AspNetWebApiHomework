@@ -9,7 +9,7 @@ namespace Repositories.Mappings
     {
         public CarProfile()
         {
-            CreateMap<CarDto, Car>().ForMember(x=>x.Brand,y=>y.MapFrom(src => src.Brand)).ReverseMap();
+            CreateMap<CarDto, Car>().ReverseMap();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Repositories
         where TDto : BaseDto
         where TModel : BaseEntity
     {
-        private readonly IMapper _mapper;
+        public readonly IMapper _mapper;
         protected DbSet<TModel> _dbSet => Context.Set<TModel>();
 
         public CarsContext Context { get; }
