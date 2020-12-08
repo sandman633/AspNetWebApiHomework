@@ -1,4 +1,5 @@
-﻿using DataBase.Domain;
+﻿using DataBase.Context;
+using DataBase.Domain;
 using Models.DTO;
 using Repositories.Interfaces.CRUD;
 using System;
@@ -12,6 +13,6 @@ namespace Repositories.Interfaces
     /// </summary>
     public interface IEngineRepository : ICreateDto<EngineDto, Engine>, IDeletableById, IGetTable<EngineDto>
     {
-
-    }
+        CarsContext Context { get; }
+}
 }
