@@ -27,7 +27,7 @@ namespace Repositories
 
         public override IQueryable<Car> DefaultInclude(DbSet<Car> dbSet)
         {
-            return _dbSet.Include(x => x.Engine);
+            return _dbSet.Include(x => x.Engine).Include(x => x.Brand);
         }
     }
 }

@@ -88,7 +88,7 @@ namespace AspNetWebApiHomework.Controllers
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CarResponse))]
-        [Route("[controller]/add")]
+        [Route("[controller]/Add")]
         public async Task<IActionResult> PostAsync(CreateCarRequest request)
         {
             _logger.LogInformation("Cars/Post was requested.");
@@ -102,6 +102,7 @@ namespace AspNetWebApiHomework.Controllers
         /// <returns></returns>
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CarResponse))]
+        [Route("[controller]/Update")]
         public async Task<IActionResult> PutAsync(UpdateCarRequest request)
         {
             _logger.LogInformation("Cars/Put was requested.");

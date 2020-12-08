@@ -9,7 +9,8 @@ namespace Repositories.Interfaces.CRUD
         IGetTableById<TDto, TModel>,
         IGetTable<TDto>,
         IUpdatable<TDto>,
-        IDeletableById
+        IDeletableById,
+        IContext
     {
     }
 }

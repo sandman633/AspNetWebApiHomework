@@ -12,7 +12,7 @@ namespace Models.Requests.Car
         /// <summary>
         /// Марка авто
         /// </summary>
-        public ManufacturerDto Brand { get; set; }
+        public string BrandName { get; set; }
         /// <summary>
         /// Модель
         /// </summary>
@@ -20,11 +20,11 @@ namespace Models.Requests.Car
         /// <summary>
         /// Тип двигателя
         /// </summary>
-        public EngineDto EngineType { get; set; }
+        public string EngineName{ get; set; }
         /// <summary>
-        /// Год выпуска
+        /// Power
         /// </summary>
-        public int Year { get; set; }
+        public int EnginePower { get; set; }
         /// <summary>
         /// Тип автомобиля
         /// (хэтчбэк, седан и тп)

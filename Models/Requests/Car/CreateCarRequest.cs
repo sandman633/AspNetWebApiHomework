@@ -16,7 +16,7 @@ namespace Models.Requests.Car
         /// <summary>
         /// Марка авто
         /// </summary>
-        public ManufacturerDto Brand { get; set; }
+        public long BrandId { get; set; }
         /// <summary>
         /// Модель
         /// </summary>
@@ -24,7 +24,7 @@ namespace Models.Requests.Car
         /// <summary>
         /// Тип двигателя
         /// </summary>
-        public EngineDto EngineType { get; set; }
+        public long EngineId { get; set; }
         /// <summary>
         /// Год выпуска
         /// </summary>

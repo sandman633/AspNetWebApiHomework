@@ -13,6 +13,6 @@ namespace Repositories.Interfaces
     /// </summary>
     public interface ICarRepository: ICrudRepository<CarDto,Car>
     {
-        CarsContext Context { get; }
+         
     }
 }

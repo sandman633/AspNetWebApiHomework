@@ -3,6 +3,7 @@ using DataBase.Context;
 using DataBase.Domain;
 using Microsoft.EntityFrameworkCore;
 using Models.DTO;
+using Repositories.Interfaces;
 using Repositories.Interfaces.CRUD;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,10 @@ namespace Repositories
         where TModel : BaseEntity
     {
         private readonly IMapper _mapper;
-        protected readonly CarsContext _context;
-        protected DbSet<TModel> _dbSet => _context.Set<TModel>();
+        protected DbSet<TModel> _dbSet => Context.Set<TModel>();
+
+        public CarsContext Context { get; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -32,7 +35,7 @@ namespace Repositories
         protected BaseRepository(CarsContext context, IMapper mapper)
         {
             _mapper = mapper;
-            _context = context;
+            Context = context;
         }
         /// <summary>
         /// Методы реализующие интерфейсы Репозитория
@@ -44,7 +47,7 @@ namespace Repositories
         {
             var entity = _mapper.Map<TModel>(dto);
             await _dbSet.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await Context.SaveChangesAsync();
             return await GetAsyncById(entity.Id);
         }
 
@@ -61,7 +64,7 @@ namespace Repositories
 
         public async Task<IEnumerable<TDto>> GetAsync()
         {
-            var entities = await _dbSet.AsNoTracking().ToListAsync();
+            var entities = await DefaultInclude(_dbSet).AsNoTracking().ToListAsync();
 
             var dtos = _mapper.Map<IEnumerable<TDto>>(entities);
 
@@ -71,8 +74,8 @@ namespace Repositories
         public async Task<TDto> UpdateAsync(TDto dto)
         {
             var entity = _mapper.Map<TModel>(dto);
-            _context.Update(entity);
-            await _context.SaveChangesAsync();
+            Context.Update(entity);
+            await Context.SaveChangesAsync();
             var newEntity = await GetAsyncById(entity.Id);
 
             return _mapper.Map<TDto>(newEntity);
@@ -82,8 +85,8 @@ namespace Repositories
         {
             var entities = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
 
-            _context.Remove(entities);
-            await _context.SaveChangesAsync();
+            Context.Remove(entities);
+            await Context.SaveChangesAsync();
         }
 
         public virtual  IQueryable<TModel> DefaultInclude(DbSet<TModel> dbSet) => dbSet;

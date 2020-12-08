@@ -16,7 +16,9 @@ namespace AspNetWebApiHomework.Controllers.Mapping
         {
             CreateMap<CreateCarRequest, CarDto>();
             CreateMap<UpdateCarRequest, CarDto>();
-            CreateMap<CarDto, CarResponse>();
+            CreateMap<CarDto, CarResponse>().ForMember(x => x.BrandName, y => y.MapFrom(src => src.Brand.Name))
+                .ForMember(x => x.EngineName, y => y.MapFrom(src => src.Engine.Name))
+                .ForMember(x => x.EnginePower, y => y.MapFrom(src => src.Engine.Power));
         }
 
     }
