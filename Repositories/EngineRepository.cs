@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DataBase.Context;
 using DataBase.Domain;
+using Microsoft.EntityFrameworkCore;
 using Models.DTO;
 using Repositories.Interfaces;
 using System;
@@ -18,6 +19,8 @@ namespace Repositories
         /// <param name="mapper">Маппер.</param>
         public EngineRepository(CarsContext context, IMapper mapper) : base(context, mapper)
         {
+            
         }
+
     }
 }

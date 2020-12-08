@@ -23,7 +23,7 @@ namespace Repositories
     {
         private readonly IMapper _mapper;
         protected readonly CarsContext _context;
-        protected DbSet<TModel> DbSet => _context.Set<TModel>();
+        protected DbSet<TModel> _dbSet => _context.Set<TModel>();
         /// <summary>
         /// 
         /// </summary>
@@ -43,14 +43,14 @@ namespace Repositories
         public async Task<TDto> CreateAsync(TDto dto)
         {
             var entity = _mapper.Map<TModel>(dto);
-            await DbSet.AddAsync(entity);
+            await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
             return await GetAsyncById(entity.Id);
         }
 
         public async Task<TDto> GetAsyncById(long id)
         {
-            var entity = await DbSet
+            var entity = await _dbSet
                               .AsNoTracking()
                               .FirstOrDefaultAsync(x => x.Id == id);
 
@@ -61,7 +61,7 @@ namespace Repositories
 
         public async Task<IEnumerable<TDto>> GetAsync()
         {
-            var entities = await DbSet.AsNoTracking().ToListAsync();
+            var entities = await _dbSet.AsNoTracking().ToListAsync();
 
             var dtos = _mapper.Map<IEnumerable<TDto>>(entities);
 
@@ -80,10 +80,12 @@ namespace Repositories
 
         public async Task DeleteByIdAsync(long id)
         {
-            var entities = await DbSet.FirstOrDefaultAsync(x => x.Id == id);
+            var entities = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
 
             _context.Remove(entities);
             await _context.SaveChangesAsync();
         }
+
+        public virtual  IQueryable<TModel> DefaultInclude(DbSet<TModel> dbSet) => dbSet;
     }
 }

@@ -42,12 +42,6 @@ namespace Services.Services
 
         public async Task<IEnumerable<CarDto>> GetAsync()
         {
-            var engine = new Engine { Name = "V6", Type = "Disiel", Power = 180, Description = "V6 TurboDisiel 180 powered engine" };
-
-            var manufacturer = new Manufacturer { Name = "Toyota", Year = 2010 };
-            var shop = new Shop { Name = "TTS Auto", Phone = "55255255" };
-            var car = new Car { Brand = manufacturer, Engine = engine, Model = "Camry", MaxSpeed = 240, Price = 2500000, Type = "Sedan"};
-            var availability = new Availability { Car = car, Shop = shop };
             return await _repository.GetAsync();
         }
 
