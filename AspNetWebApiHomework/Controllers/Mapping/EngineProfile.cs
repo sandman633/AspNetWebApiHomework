@@ -1,18 +1,21 @@
 ﻿using AutoMapper;
-using DataBase.Domain;
 using Models.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Models.Requests.Car;
+using Models.Responses.Engine;
+
 
 namespace AspNetWebApiHomework.Controllers.Mapping
 {
     public class EngineProfile : Profile
     {
+        /// <summary>
+        /// Добавляем карты маппинга для <see cref="EngineResponse"/> <see cref="CreateEngineRequest"/> <see cref="UpdateEngineRequest"/>/>
+        /// </summary>
         public EngineProfile()
         {
-            CreateMap<Engine, EngineDto>().ReverseMap();
+            CreateMap<CreateEngineRequest, EngineDto>();
+            CreateMap<UpdateEngineRequest, EngineDto>();
+            CreateMap<EngineDto, EngineResponse>();
         }
     }
 }

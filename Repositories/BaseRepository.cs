@@ -28,7 +28,7 @@ namespace Repositories
         public CarsContext Context { get; }
 
         /// <summary>
-        /// 
+        /// Инициализация полей
         /// </summary>
         /// <param name="context">Контекст бд</param>
         /// <param name="mapper">маппер</param>

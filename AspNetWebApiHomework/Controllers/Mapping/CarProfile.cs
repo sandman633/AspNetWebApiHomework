@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 namespace AspNetWebApiHomework.Controllers.Mapping
 {
     public class CarProfile : Profile
-    {        /// <summary>
-             /// Инициализирует экземпляр <see cref="DressProfile"/>.
-             /// </summary>
+    {  
+        /// <summary>
+        /// Добавляем карты маппинга для <see cref="CarResponse"/> <see cref="CreateCarRequest"/> <see cref="UpdateCarRequest"/>/>
+        /// </summary>
         public CarProfile()
         {
             CreateMap<CreateCarRequest, CarDto>();
