@@ -29,7 +29,7 @@ namespace DataBase.Context
         /// </summary>
         public DbSet<Availability> Availabilities { get; set; }
         /// <summary>
-        /// 
+        /// Manufacturers
         /// </summary>
         public DbSet<Manufacturer> Manufacturers { get; set; }
         /// <summary>

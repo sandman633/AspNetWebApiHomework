@@ -10,10 +10,10 @@ using System.Text;
 
 namespace Repositories
 {
-    class EngineRepository : BaseRepository<EngineDto, Engine>, IEngineRepository
+    public class EngineRepository : BaseRepository<EngineDto, Engine>, IEngineRepository
     {
         /// <summary>
-        /// Инициализирует экземпляр <see cref="CarRepository"/>.
+        /// Инициализирует экземпляр <see cref="EngineRepository"/>.
         /// </summary>
         /// <param name="context">Контекст данных.</param>
         /// <param name="mapper">Маппер.</param>

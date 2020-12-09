@@ -28,9 +28,14 @@ namespace Repositories
 
         public override IQueryable<Car> DefaultInclude(DbSet<Car> dbSet)
         {
-            return _dbSet.Include(x => x.Engine).Include(x => x.Brand);
+            return _dbSet.Include(x => x.Engine).Include(x => x.Brand).AsNoTracking();
         }
-
+        /// <summary>
+        /// Метод для изменения двигателя в автомобиле
+        /// </summary>
+        /// <param name="id">id авто</param>
+        /// <param name="engineName">название двигателя</param>
+        /// <returns></returns>
         public async Task<CarDto> SwapEngine(long id, string engineName)
         {
             var car = DefaultInclude(_dbSet).FirstOrDefault(x => x.Id == id);

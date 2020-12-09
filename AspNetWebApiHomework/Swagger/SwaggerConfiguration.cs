@@ -23,13 +23,14 @@ namespace AspNetWebApiHomework.Swagger
                 c.DocumentName = SwaggerDocParts.Cars;
                 c.ApiGroupNames = new[] { SwaggerDocParts.Cars };
                 c.GenerateXmlObjects = true;
+            })
+            .AddSwaggerDocument(c =>
+            {
+                c.Title = "Engines";
+                c.DocumentName = SwaggerDocParts.Engines;
+                c.ApiGroupNames = new[] { SwaggerDocParts.Engines};
+                c.GenerateXmlObjects = true;
             });
-            //.AddSwaggerDocument(c => 
-            //{
-            //    c.Title = "Weather";
-            //    c.DocumentName = SwaggerDocParts.Weather;
-            //    c.ApiGroupNames = new[] { SwaggerDocParts.Weather };
-            //});
         }
     }
 }
