@@ -15,6 +15,8 @@ namespace Repositories.Extension
         public static void ConfigureRepositories(this IServiceCollection services)
         {
             services.AddScoped<ICarRepository,CarRepository>();
+            services.AddScoped<IEngineRepository, EngineRepository>();
+            services.AddScoped<UnitOfWork>();
         }
     }
 }

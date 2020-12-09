@@ -38,14 +38,12 @@ namespace Repositories
         /// <returns></returns>
         public async Task<CarDto> SwapEngine(long id, string engineName)
         {
-            var car = DefaultInclude(_dbSet).FirstOrDefault(x => x.Id == id);
-            var engine = Context.Engines.FirstOrDefault(x => x.Name == engineName);
+            var car = await DefaultInclude(_dbSet).FirstOrDefaultAsync(x => x.Id == id);
+            var engine = await Context.Engines.FirstOrDefaultAsync(x => x.Name == engineName);
             if(engine!=null && car!= null)
                 car.Engine = engine;
             _dbSet.Update(car);
-            await Context.SaveChangesAsync();
-            car = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
-            return _mapper.Map<CarDto>(car);
+            return  _mapper.Map<CarDto>(car);
         }
     }
 }

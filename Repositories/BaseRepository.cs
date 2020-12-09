@@ -47,13 +47,12 @@ namespace Repositories
         {
             var entity = _mapper.Map<TModel>(dto);
             await _dbSet.AddAsync(entity);
-            await Context.SaveChangesAsync();
             return await GetAsyncById(entity.Id);
         }
 
         public async Task<TDto> GetAsyncById(long id)
         {
-            var entity = await _dbSet
+            var entity = await DefaultInclude(_dbSet)
                               .AsNoTracking()
                               .FirstOrDefaultAsync(x => x.Id == id);
 
@@ -75,7 +74,6 @@ namespace Repositories
         {
             var entity = _mapper.Map<TModel>(dto);
             Context.Update(entity);
-            await Context.SaveChangesAsync();
             var newEntity = await GetAsyncById(entity.Id);
 
             return _mapper.Map<TDto>(newEntity);
@@ -86,7 +84,6 @@ namespace Repositories
             var entities = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
 
             Context.Remove(entities);
-            await Context.SaveChangesAsync();
         }
 
         public virtual  IQueryable<TModel> DefaultInclude(DbSet<TModel> dbSet) => dbSet;

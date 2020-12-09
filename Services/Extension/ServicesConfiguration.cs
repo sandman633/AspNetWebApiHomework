@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Repositories.Interfaces;
 using Services.Interfaces;
 using Services.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Services.Extension
 {
@@ -15,6 +13,7 @@ namespace Services.Extension
         public static void ConfigureServices(this IServiceCollection services)
         {
             services.AddTransient<ICarService, CarService>();
+            services.AddTransient<IEngineService, EngineService>();
         }
     }
 }
