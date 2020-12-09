@@ -10,7 +10,6 @@ namespace Models.Requests.Car
         /// <summary>
         /// Идентификатор сущности.
         /// </summary>
-        [Required]
         public long Id { get; set; }
     }
 }

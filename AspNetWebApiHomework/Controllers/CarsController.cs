@@ -15,6 +15,7 @@ namespace AspNetWebApiHomework.Controllers
     /// контроллер для взаимодействия с сервисом CarService
     /// </summary>
     [ApiController]
+    [Route("[controller]")]
     [ApiExplorerSettings(GroupName = SwaggerDocParts.Cars)]
     public class CarsController : ControllerBase
     {
@@ -43,7 +44,6 @@ namespace AspNetWebApiHomework.Controllers
         /// Список авто
         /// </returns>
         [HttpGet]
-        [Route("[controller]/Get")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<CarDto>))]
         public async Task<IActionResult>  GetAsync()
         {
@@ -55,8 +55,12 @@ namespace AspNetWebApiHomework.Controllers
             }
             return NotFound();
         }
-        [HttpGet]
-        [Route("[controller]/Get/{id}")]
+        /// <summary>
+        /// Получение экземпляра car по Id
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<CarDto>))]
         public async Task<IActionResult> GetAsync(long id)
         {
@@ -73,8 +77,8 @@ namespace AspNetWebApiHomework.Controllers
         /// </summary>
         /// <param name="id">Параметр id по которому происходит поиск авто</param>
         /// <returns></returns>
-        [HttpDelete]
-        [Route("[controller]/{id}")]
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Delete(int id)
         {
             _logger.LogInformation("cars/id for delete was  requested");
@@ -82,13 +86,12 @@ namespace AspNetWebApiHomework.Controllers
             return NoContent();
         }
         /// <summary>
-        /// добавление записи в бд
+        /// Добавление записи в бд
         /// </summary>
         /// <param name="request">запрос</param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CarResponse))]
-        [Route("[controller]/add")]
         public async Task<IActionResult> PostAsync(CreateCarRequest request)
         {
             _logger.LogInformation("Cars/Post was requested.");
@@ -106,6 +109,20 @@ namespace AspNetWebApiHomework.Controllers
         {
             _logger.LogInformation("Cars/Put was requested.");
             var response = await _carService.UpdateAsync(_mapper.Map<CarDto>(request));
+            return Ok(_mapper.Map<CarResponse>(response));
+        }
+        /// <summary>
+        /// Изменение двигателя у экземпляра Car с Id = id
+        /// </summary>
+        /// <param name="id">id</param>
+        /// <param name="engineName">Название двигателя</param>
+        /// <returns></returns>
+        [HttpPut("/Swap")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CarResponse))]
+        public async Task<IActionResult> SwapAsync(int id, string engineName)
+        {
+            _logger.LogInformation("Cars/Swap was requested.");
+            var response = await _carService.SwapEngine(id,engineName);
             return Ok(_mapper.Map<CarResponse>(response));
         }
     }

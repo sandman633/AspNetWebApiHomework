@@ -1,4 +1,5 @@
-﻿using DataBase.Domain;
+﻿using DataBase.Context;
+using DataBase.Domain;
 using Models.DTO;
 using Repositories.Interfaces.CRUD;
 using System;
@@ -10,7 +11,8 @@ namespace Repositories.Interfaces
     /// <summary>
     /// Интерфейс репозитория для работы с Car
     /// </summary>
-    public interface ICarRepository: ICrudRepository<CarDto,Car>
+    public interface ICarRepository: ICrudRepository<CarDto,Car>, ISwapEngine<CarDto>
     {
+         
     }
 }

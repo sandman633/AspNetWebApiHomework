@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repositories;
 using Repositories.Extension;
+using Repositories.Interfaces;
 using Services.Extension;
 using Services.Services;
 using System.Reflection;
@@ -41,6 +42,9 @@ namespace AspNetWebApiHomework
             services.AddAutoMapper(
                 typeof(CarsController).GetTypeInfo().Assembly,
                 typeof(CarRepository).GetTypeInfo().Assembly);
+            services.AddAutoMapper(
+                typeof(EnginesController).GetTypeInfo().Assembly,
+                typeof(EngineRepository).GetTypeInfo().Assembly);
             services.ConfigureSwagger();
             
         }

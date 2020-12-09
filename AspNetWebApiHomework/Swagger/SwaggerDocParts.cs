@@ -14,6 +14,6 @@ namespace AspNetWebApiHomework.Swagger
         /// Константа для сваггер-документа 
         /// </summary>
         public const string Cars = nameof(Cars);
-        //public const string Weather = nameof(Weather);
+        public const string Engines = nameof(Engines);
     }
 }

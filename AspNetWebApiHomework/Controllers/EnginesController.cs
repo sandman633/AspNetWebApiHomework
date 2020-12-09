@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AspNetWebApiHomework.Swagger;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -17,6 +18,9 @@ namespace AspNetWebApiHomework.Controllers
     /// <summary>
     /// Контроллер для работы с сервисом EngineService
     /// </summary>
+    [ApiController]
+    [Route("[controller]")]
+    [ApiExplorerSettings(GroupName = SwaggerDocParts.Engines)]
     public class EnginesController : ControllerBase
     {
         /// <summary>
@@ -45,7 +49,6 @@ namespace AspNetWebApiHomework.Controllers
         /// Список двигателей
         /// </returns>
         [HttpGet]
-        [Route("[controller]/Get")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<EngineDto>))]
         public async Task<IActionResult> GetAsync()
         {
@@ -62,8 +65,8 @@ namespace AspNetWebApiHomework.Controllers
         /// </summary>
         /// <param name="id">Параметр id по которому происходит поиск engine</param>
         /// <returns></returns>
-        [HttpDelete]
-        [Route("[controller]/{id}")]
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EngineResponse))]
         public async Task<IActionResult> Delete(int id)
         {
             _logger.LogInformation("Engines/id for delete was  requested");
@@ -77,10 +80,9 @@ namespace AspNetWebApiHomework.Controllers
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(EngineResponse))]
-        [Route("[controller]/add")]
         public async Task<IActionResult> PostAsync(CreateEngineRequest request)
         {
-            _logger.LogInformation("Cars/Post was requested.");
+            _logger.LogInformation("Engines/Post was requested.");
             var response = await _engineService.CreateAsync(_mapper.Map<EngineDto>(request));
             return Ok(_mapper.Map<EngineResponse>(response));
         }

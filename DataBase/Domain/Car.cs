@@ -29,7 +29,6 @@ namespace DataBase.Domain
         /// Тип автомобиля
         /// (хэтчбэк, седан и тп)
         /// </summary>
-        public long EngineId { get; set; }
         [Required]
         public string Type { get; set; }
         /// <summary>
