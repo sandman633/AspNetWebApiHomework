@@ -17,12 +17,8 @@ namespace DataBase.Domain
         /// <summary>
         /// Год выпуска
         /// </summary>
+        [Required]
         public int Year { get; set; }
-
-        public override string ToString()
-        {
-            return "Наименование "+ Name + "Год выпуска " + Year.ToString();
-        }
 
     }
 }
