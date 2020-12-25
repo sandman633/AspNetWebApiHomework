@@ -15,5 +15,6 @@ namespace AspNetWebApiHomework.Swagger
         /// </summary>
         public const string Cars = nameof(Cars);
         public const string Engines = nameof(Engines);
+        public const string Accounts = nameof(Accounts);
     }
 }

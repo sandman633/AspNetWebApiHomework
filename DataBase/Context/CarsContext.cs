@@ -1,4 +1,5 @@
 ﻿using DataBase.Domain;
+using DataBase.Domain.UserRoleModels;
 using DataBase.Fluent;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -32,6 +33,20 @@ namespace DataBase.Context
         /// Manufacturers
         /// </summary>
         public DbSet<Manufacturer> Manufacturers { get; set; }
+        /// <summary>
+        /// Пользователи 
+        /// </summary>
+        public DbSet<User> Users { get; set; }
+
+        /// <summary>
+        /// Роли
+        /// </summary>
+        public DbSet<Role> Roles { get; set; }
+
+        /// <summary>
+        /// Роли юзеров
+        /// </summary>
+        public DbSet<UserRoles> UserRoles { get; set; }
         /// <summary>
         /// Настройка контекста
         /// </summary>

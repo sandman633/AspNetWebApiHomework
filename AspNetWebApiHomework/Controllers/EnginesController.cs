@@ -1,5 +1,6 @@
 ﻿using AspNetWebApiHomework.Swagger;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,6 +21,7 @@ namespace AspNetWebApiHomework.Controllers
     /// </summary>
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     [ApiExplorerSettings(GroupName = SwaggerDocParts.Engines)]
     public class EnginesController : ControllerBase
     {

@@ -23,9 +23,10 @@ namespace DataBase.Context
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", false, true)
                 .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", true, true)
+                .AddJsonFile("secrets.json", false, true)
                 .AddEnvironmentVariables()
                 .Build();
-            var connString = conf.GetConnectionString(nameof(CarsContext));
+            var connString = conf["ConnectionStrings:CarsContext"];
 
             var options = new DbContextOptionsBuilder<CarsContext>()
                 .UseNpgsql(connString, _options =>

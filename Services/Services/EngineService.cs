@@ -16,11 +16,11 @@ namespace Services.Services
         /// Иницализируем поля
         /// </summary>
         /// <param name="mapper">Маппер</param>
-        /// <param name="repository">Rep</param>
-        public EngineService(IMapper mapper, UnitOfWork repository)
+        /// <param name="unit">Rep</param>
+        public EngineService(IMapper mapper, UnitOfWork unit)
         {
             _mapper = mapper;
-            _unit = repository;
+            _unit = unit;
         }
         /// <summary>
         /// Реализуем нужные интерфейсы

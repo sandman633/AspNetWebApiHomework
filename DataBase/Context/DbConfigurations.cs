@@ -14,9 +14,10 @@ namespace DataBase.Context
         /// <param name="configuration">конфигурация</param>
         public static void ConfigureDb(this IServiceCollection service, IConfiguration configuration )
         {
+            var con = configuration["ConnectionStrings:CarsContext"];
             service.AddDbContext<CarsContext>(
                 options => options
-                .UseNpgsql(configuration.GetConnectionString(nameof(CarsContext)),
+                .UseNpgsql(con,
                 builder => builder.MigrationsAssembly(typeof(CarsContext).Assembly.FullName)));
         }
     }
