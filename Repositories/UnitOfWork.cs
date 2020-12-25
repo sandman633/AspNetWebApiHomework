@@ -15,12 +15,13 @@ namespace Repositories
         /// <summary>
         /// Добавляем нужные поля
         /// Контекст
-        /// И два репозитория
+        /// И три(3)III репозитория
         /// </summary>
         private CarsContext _context;
         private IMapper _mapper;
         private CarRepository _carRepository;
         private EngineRepository _engineRepository;
+        private UserRepository _userRepository;
         private bool disposed = false;
         public CarRepository carsRepository
         {
@@ -38,6 +39,15 @@ namespace Repositories
                 if (_engineRepository == null)
                     _engineRepository = new EngineRepository(_context, _mapper);
                 return _engineRepository;
+            }
+        }
+        public UserRepository userRepository
+        {
+            get
+            {
+                if (_userRepository == null)
+                    _userRepository = new UserRepository(_context, _mapper);
+                return _userRepository;
             }
         }
 

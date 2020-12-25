@@ -30,6 +30,14 @@ namespace AspNetWebApiHomework.Swagger
                 c.DocumentName = SwaggerDocParts.Engines;
                 c.ApiGroupNames = new[] { SwaggerDocParts.Engines};
                 c.GenerateXmlObjects = true;
+            })
+            .AddSwaggerDocument(c =>
+            {
+                c.Title = "Authorization";
+                c.DocumentName = SwaggerDocParts.Accounts;
+                c.ApiGroupNames = new[] { SwaggerDocParts.Accounts };
+                c.GenerateXmlObjects = true;
+
             });
         }
     }
